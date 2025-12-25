@@ -37,7 +37,7 @@ export default function PricingPage() {
         'Regent branding',
       ],
       cta: 'Get Started Free',
-      href: '/register',
+      href: 'https://appregent.netlify.app/register',
       highlighted: false,
     },
     pro: {
@@ -57,7 +57,7 @@ export default function PricingPage() {
         'Priority email support',
       ],
       cta: 'Upgrade to Pro',
-      href: '/register?plan=pro',
+      href: 'https://appregent.netlify.app/register?plan=pro',
       highlighted: true,
     },
     business: {
@@ -280,7 +280,7 @@ export default function PricingPage() {
           <p className="text-xl text-dune mb-10">
             Start free today. No credit card required.
           </p>
-          <a href="/register" className="btn-primary text-lg">
+          <a href="https://appregent.netlify.app/register" className="btn-primary text-lg">
             Create Free Account
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

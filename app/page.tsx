@@ -132,7 +132,7 @@ export default function LandingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
-              <a href="/register" className="btn-primary text-lg">
+              <a href="https://appregent.netlify.app/register" className="btn-primary text-lg">
                 Get Started Free
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -552,7 +552,7 @@ export default function LandingPage() {
                 <CheckItem>Basic scheduling</CheckItem>
                 <CheckItem>Email confirmations</CheckItem>
               </ul>
-              <a href="/register" className="btn-secondary w-full justify-center mt-auto">
+              <a href="https://appregent.netlify.app/register" className="btn-secondary w-full justify-center mt-auto">
                 Get Started
               </a>
             </div>
@@ -578,7 +578,7 @@ export default function LandingPage() {
                 <CheckItem>Remove branding</CheckItem>
                 <CheckItem>Integrations</CheckItem>
               </ul>
-              <a href="/register?plan=pro" className="btn-primary w-full justify-center mt-auto">
+              <a href="https://appregent.netlify.app/register?plan=pro" className="btn-primary w-full justify-center mt-auto">
                 Upgrade to Pro
               </a>
             </div>
@@ -707,7 +707,7 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href="/register" className="btn-gold text-lg">
+            <a href="https://appregent.netlify.app/register" className="btn-gold text-lg">
               Get Started Free
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
