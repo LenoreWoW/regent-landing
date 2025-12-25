@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --maroon: #8A1538;
+  --maroon-dark: #5c0f26;
+  --gold: #d4af37;
+  --gold-dark: #b8962e;
+  --dune: #a89f91;
+  --cream: #faf8f5;
+  --charcoal: #0a0a0a;
+  --palm: #129b82;
+  --sea: #4194b3;
+  --salmon: #dd7877;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply antialiased font-body;
+    background-color: var(--cream);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-maroon via-gold to-maroon bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-maroon text-white font-semibold rounded-lg shadow-lg shadow-maroon/25 hover:bg-maroon-dark transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-maroon/30;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-transparent text-charcoal font-semibold rounded-lg border-2 border-charcoal/20 hover:border-maroon hover:text-maroon transition-all duration-300;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-gold text-charcoal font-semibold rounded-lg shadow-lg shadow-gold/25 hover:bg-gold-dark transition-all duration-300 hover:scale-105;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl border border-dune/20 shadow-xl shadow-charcoal/5 p-8 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-2xl hover:shadow-maroon/10 hover:-translate-y-1 hover:border-gold/30;
+  }
+  
+  .section-tag {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-maroon/10 text-maroon text-sm font-semibold tracking-wider uppercase rounded-full mb-4;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-display font-medium text-charcoal mb-6 leading-tight;
+  }
+  
+  .section-subtitle {
+    @apply text-lg md:text-xl text-dune max-w-2xl;
+  }
+
+  /* Premium card with gold accent */
+  .card-premium {
+    @apply relative overflow-hidden;
+  }
+
+  .card-premium::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-maroon via-gold to-maroon;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20;
+  }
+
+  /* Dark section */
+  .section-dark {
+    @apply bg-charcoal text-white;
+  }
+
+  .section-dark .section-tag {
+    @apply bg-gold/20 text-gold;
+  }
+
+  .section-dark .section-title {
+    @apply text-white;
+  }
+
+  .section-dark .section-subtitle {
+    @apply text-white/70;
+  }
+
+  /* Cream section */
+  .section-cream {
+    @apply bg-cream;
+  }
+}
+
+/* Custom animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-10px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(-20px, -10px) scale(1.05);
+  }
+}
+
+.animate-blob {
+  animation: blob 10s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Gold particle effect */
+@keyframes float-particle {
+  0% {
+    transform: translateY(100%) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90%) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(10%) translateX(-10px) scale(1);
+  }
+  100% {
+    transform: translateY(0) translateX(0) scale(0);
+    opacity: 0;
+  }
+}
+
+.gold-particle {
+  animation: float-particle 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dune);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--maroon);
+}
+
+/* Selection */
+::selection {
+  background: var(--maroon);
+  color: white;
+}
