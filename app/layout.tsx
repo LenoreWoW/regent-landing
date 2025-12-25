@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Navigation } from './components/Navigation';
 
 export const metadata: Metadata = {
   title: 'Regent — Premium Scheduling for Teams & Individuals',
@@ -27,9 +26,55 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.addEventListener('scroll', () => {
+              const navBg = document.getElementById('nav-bg');
+              if (navBg) {
+                navBg.style.opacity = window.scrollY > 50 ? '1' : '0';
+              }
+            });
+          `
+        }} />
+      </head>
       <body className="bg-cream">
-        {/* Client-side Navigation with Clerk */}
-        <Navigation />
+        {/* Navigation */}
+        <nav className="fixed top-0 w-full z-50 transition-all duration-300">
+          <div className="absolute inset-0 bg-cream/80 backdrop-blur-lg border-b border-dune/10 opacity-0 transition-opacity duration-300" id="nav-bg" />
+          <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex justify-between items-center h-20">
+              {/* Logo */}
+              <a href="/" className="flex items-center gap-3 group">
+                <div className="w-10 h-10 bg-gradient-maroon rounded-xl flex items-center justify-center shadow-lg shadow-maroon/20 group-hover:scale-105 transition-transform">
+                  <span className="text-white font-display font-bold text-xl">R</span>
+                </div>
+                <span className="font-display font-medium text-2xl text-charcoal">Regent</span>
+              </a>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-10">
+                <a href="/features" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">Features</a>
+                <a href="/pricing" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">Pricing</a>
+                <a href="/demo" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">Demo</a>
+                <a href="/docs" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">Docs</a>
+              </div>
+
+              {/* Auth Buttons - Simple links to main app */}
+              <div className="flex items-center gap-4">
+                <a href="https://appregent.netlify.app/login" className="text-charcoal/70 hover:text-maroon transition-colors font-medium hidden sm:block">
+                  Log in
+                </a>
+                <a href="https://appregent.netlify.app/register" className="btn-primary text-sm !py-3 !px-6">
+                  Get Started
+                  <svg className="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
 
         {/* Main Content */}
         <main className="pt-20">
@@ -39,7 +84,6 @@ export default function RootLayout({
         {/* Footer */}
         <footer className="bg-charcoal text-white pt-20 pb-10">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            {/* Top section */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
               {/* Brand */}
               <div className="col-span-2 md:col-span-1">
@@ -95,11 +139,10 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* Divider */}
+            {/* Bottom */}
             <div className="border-t border-white/10 pt-8">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="flex items-center gap-6">
-                  {/* Social Icons */}
                   <a href="#" className="text-white/40 hover:text-gold transition-colors">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
@@ -111,9 +154,7 @@ export default function RootLayout({
                     </svg>
                   </a>
                 </div>
-                <p className="text-white/40 text-sm">
-                  © 2025 Regent. All rights reserved.
-                </p>
+                <p className="text-white/40 text-sm">© 2025 Regent. All rights reserved.</p>
                 <div className="flex items-center gap-2">
                   <span className="text-white/40 text-sm">Language:</span>
                   <select className="bg-transparent text-white/70 text-sm border border-white/20 rounded px-2 py-1">
