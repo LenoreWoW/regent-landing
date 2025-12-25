@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { GetStartedButton, GetStartedGoldButton, GetStartedFreeButton, UpgradeProButton } from './components/CTAButtons';
 
 // Reusable components
 const SectionTag = ({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) => (
@@ -132,12 +133,7 @@ export default function LandingPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
-              <a href="https://appregent.netlify.app/register" className="btn-primary text-lg">
-                Get Started Free
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
+              <GetStartedButton size="large" />
               <a href="/demo" className="btn-secondary text-lg">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
@@ -552,9 +548,9 @@ export default function LandingPage() {
                 <CheckItem>Basic scheduling</CheckItem>
                 <CheckItem>Email confirmations</CheckItem>
               </ul>
-              <a href="https://appregent.netlify.app/register" className="btn-secondary w-full justify-center mt-auto">
-                Get Started
-              </a>
+              <div className="mt-auto">
+                <GetStartedFreeButton />
+              </div>
             </div>
 
             {/* Pro Tier */}
@@ -578,9 +574,9 @@ export default function LandingPage() {
                 <CheckItem>Remove branding</CheckItem>
                 <CheckItem>Integrations</CheckItem>
               </ul>
-              <a href="https://appregent.netlify.app/register?plan=pro" className="btn-primary w-full justify-center mt-auto">
-                Upgrade to Pro
-              </a>
+              <div className="mt-auto">
+                <UpgradeProButton />
+              </div>
             </div>
 
             {/* Business Tier */}
@@ -707,12 +703,7 @@ export default function LandingPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href="https://appregent.netlify.app/register" className="btn-gold text-lg">
-              Get Started Free
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
+            <GetStartedGoldButton size="large" />
             <a href="/contact" className="btn-secondary text-lg !border-white/30 !text-white hover:!bg-white/10">
               Talk to Sales
             </a>

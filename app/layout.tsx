@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Navigation } from './components/Navigation';
 
 export const metadata: Metadata = {
   title: 'Regent — Premium Scheduling for Teams & Individuals',
@@ -27,72 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-cream">
-        {/* Navigation */}
-        <nav className="fixed top-0 w-full z-50 transition-all duration-300" id="main-nav">
-          <div className="absolute inset-0 bg-cream/80 backdrop-blur-lg border-b border-dune/10 opacity-0 transition-opacity duration-300" id="nav-bg" />
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
-              {/* Logo */}
-              <a href="/" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 bg-gradient-maroon rounded-xl flex items-center justify-center shadow-lg shadow-maroon/20 group-hover:scale-105 transition-transform">
-                  <span className="text-white font-display font-bold text-xl">R</span>
-                </div>
-                <span className="font-display font-medium text-2xl text-charcoal">Regent</span>
-              </a>
-
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-10">
-                <a href="/features" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">
-                  Features
-                </a>
-                <a href="/pricing" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">
-                  Pricing
-                </a>
-                <a href="/demo" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">
-                  Demo
-                </a>
-                <a href="/docs" className="text-charcoal/70 hover:text-maroon transition-colors font-medium">
-                  Docs
-                </a>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex items-center gap-4">
-                <a 
-                  href="https://appregent.netlify.app/login" 
-                  className="text-charcoal/70 hover:text-maroon transition-colors font-medium hidden sm:block"
-                >
-                  Log in
-                </a>
-                <a 
-                  href="https://appregent.netlify.app/register" 
-                  className="btn-primary text-sm !py-3 !px-6"
-                >
-                  Get Started
-                  <svg className="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        {/* Scroll handler script */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.addEventListener('scroll', () => {
-              const navBg = document.getElementById('nav-bg');
-              if (navBg) {
-                if (window.scrollY > 50) {
-                  navBg.style.opacity = '1';
-                } else {
-                  navBg.style.opacity = '0';
-                }
-              }
-            });
-          `
-        }} />
+        {/* Client-side Navigation with Clerk */}
+        <Navigation />
 
         {/* Main Content */}
         <main className="pt-20">

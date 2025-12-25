@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { CTAButton } from '../components/CTAButtons';
 
 const SectionTag = ({ children }: { children: React.ReactNode }) => (
   <span className="inline-flex items-center gap-2 px-4 py-2 bg-maroon/10 text-maroon text-sm font-semibold tracking-wider uppercase rounded-full mb-6">
@@ -184,14 +185,24 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
-                <a 
-                  href={plan.href}
-                  className={`w-full justify-center ${
-                    plan.highlighted ? 'btn-primary' : 'btn-secondary'
-                  }`}
-                >
-                  {plan.cta}
-                </a>
+                {plan.href.startsWith('/contact') ? (
+                  <a 
+                    href={plan.href}
+                    className={`w-full justify-center ${
+                      plan.highlighted ? 'btn-primary' : 'btn-secondary'
+                    }`}
+                  >
+                    {plan.cta}
+                  </a>
+                ) : (
+                  <CTAButton 
+                    variant={plan.highlighted ? 'primary' : 'secondary'} 
+                    className="w-full justify-center"
+                    plan={plan.href.includes('pro') ? 'pro' : undefined}
+                  >
+                    {plan.cta}
+                  </CTAButton>
+                )}
               </div>
             ))}
           </div>
@@ -280,12 +291,12 @@ export default function PricingPage() {
           <p className="text-xl text-dune mb-10">
             Start free today. No credit card required.
           </p>
-          <a href="https://appregent.netlify.app/register" className="btn-primary text-lg">
+          <CTAButton variant="primary" size="large">
             Create Free Account
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
+          </CTAButton>
         </div>
       </section>
     </div>
