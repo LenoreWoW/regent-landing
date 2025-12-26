@@ -90,7 +90,7 @@ export default function FeaturesPage() {
       icon: '🔄',
       title: 'Conflict Detection',
       description: 'Never double-book. Regent checks your calendar in real-time.',
-      features: ['Real-time sync', 'Multi-calendar support', 'Conflict warnings', 'Auto-block conflicts']
+      features: ['Real-time 2-way sync', 'Google Calendar & Outlook', 'Automatic busy time blocking', 'Conflict prevention']
     },
     {
       category: 'scheduling',
@@ -272,7 +272,7 @@ export default function FeaturesPage() {
                 />
                 <ComparisonRow 
                   feature="Calendar Export" 
-                  regent="ICS/Google" calendly="2-way sync" acuity="2-way sync" 
+                  regent="2-way sync" calendly="2-way sync" acuity="2-way sync" 
                 />
                 <ComparisonRow 
                   feature="Video Links" 

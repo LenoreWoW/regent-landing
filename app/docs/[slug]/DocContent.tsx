@@ -382,41 +382,60 @@ const docsContent: Record<string, { title: string; category: string; content: st
     category: 'Integrations',
     readTime: '4 min',
     content: `
-      Connect Google Calendar for two-way sync.
+      Connect Google Calendar for full 2-way sync with Regent.
 
       ## Setup
 
-      1. Go to Settings → Integrations
-      2. Click "Connect Google Calendar"
-      3. Grant necessary permissions
-      4. Select calendars to sync
+      1. Go to Settings → Calendar Sync
+      2. Click "Connect" next to Google Calendar
+      3. Sign in with your Google account
+      4. Grant calendar permissions
+      5. Select your primary calendar
 
       ## What Syncs
 
-      - Events from Google appear as busy in Regent
-      - Approved meetings in Regent create Google events
-      - Changes sync both ways automatically
-    `
-  },
-  'outlook': {
-    title: 'Outlook/Office 365',
-    category: 'Integrations',
-    readTime: '4 min',
-    content: `
-      Connect Microsoft Outlook for seamless scheduling.
-
-      ## Setup
-
-      1. Go to Settings → Integrations
-      2. Click "Connect Outlook"
-      3. Sign in with your Microsoft account
-      4. Select calendars to sync
+      - **Regent → Google:** Approved meetings automatically appear in Google Calendar
+      - **Google → Regent:** Your Google events show as busy times when scheduling
+      - Changes sync automatically every 15 minutes
+      - Manual sync available anytime with "Sync Now" button
 
       ## Features
 
-      - Two-way event sync
-      - Automatic conflict detection
-      - Teams meeting links (Pro/Business)
+      - Real-time busy time detection
+      - Automatic event creation for approved meetings
+      - Meeting updates sync both ways
+      - Cancelled meetings removed from calendar
+    `
+  },
+  'outlook': {
+    title: 'Outlook/Office 365 Sync',
+    category: 'Integrations',
+    readTime: '4 min',
+    content: `
+      Connect Microsoft Outlook for full 2-way sync with Regent.
+
+      ## Setup
+
+      1. Go to Settings → Calendar Sync
+      2. Click "Connect" next to Microsoft Outlook
+      3. Sign in with your Microsoft account
+      4. Grant calendar permissions
+      5. Select your calendar
+
+      ## What Syncs
+
+      - **Regent → Outlook:** Approved meetings automatically appear in Outlook
+      - **Outlook → Regent:** Your Outlook events show as busy times when scheduling
+      - Changes sync automatically every 15 minutes
+      - Manual sync available anytime with "Sync Now" button
+
+      ## Features
+
+      - Real-time busy time detection
+      - Automatic event creation for approved meetings
+      - Meeting updates sync both ways
+      - Cancelled meetings removed from calendar
+      - Microsoft Teams integration for video calls
     `
   },
   'zoom': {

@@ -39,7 +39,7 @@ export default function PricingPage() {
       description: 'For professionals who need more power',
       price: { monthly: 12, annual: 10 },
       tagline: '/month',
-      features: ['Everything in Free, plus:', '5 booking links', 'Unlimited meetings', 'Google & Outlook sync', 'Email reminders', 'Remove Regent branding', 'Video conferencing integrations', 'Custom availability', 'Priority email support'],
+      features: ['Everything in Free, plus:', '5 booking links', 'Unlimited meetings', '2-way Google & Outlook sync', 'Email reminders', 'Remove Regent branding', 'Video conferencing integrations', 'Custom availability', 'Priority email support'],
       cta: 'Upgrade to Pro',
       href: `${APP_URL}/register?plan=pro`,
       highlighted: true,
